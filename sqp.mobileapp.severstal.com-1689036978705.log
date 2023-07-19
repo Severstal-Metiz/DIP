@@ -1,0 +1,623 @@
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 1
+highlighter.js:21 HTMLCollection [h4.ant-typography.text-center]
+highlighter.js:22 1
+highlighter.js:23 HTMLCollection [div.ant-card-body]
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 1
+highlighter.js:38 HTMLCollection [h4.ant-typography.text-center]
+highlighter.js:39 1
+highlighter.js:40 HTMLCollection [div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 4
+highlighter.js:21 HTMLCollection(4) [h4.ant-typography.text-center.mb-1, div.ant-typography.text-center, h4.ant-typography.text-center.mt-1, div.ant-typography.text-center.mb-1]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 4
+highlighter.js:38 HTMLCollection(4) [h4.ant-typography.text-center.mb-1, div.ant-typography.text-center, h4.ant-typography.text-center.mt-1, div.ant-typography.text-center.mb-1]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 6
+highlighter.js:21 HTMLCollection(6) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [1][1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [2][2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0][0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [1][1][1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [2][2][2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0][0][0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [1][1][1][1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [2][2][2][2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0][0][0][0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [1][1][1][1][1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [2][2][2][2][2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0][0][0][0][0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [1][1][1][1][1][1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [2][2][2][2][2][2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0][0][0][0][0][0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [1][1][1][1][1][1][1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [2][2][2][2][2][2][2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Пострадавший после поражения электрическим током находится без сознания, дышит, видимых повреждений нет. Ваши действия в данной ситуации?
+highlighter.js:28 [0][0][0][0][0][0][0][0][0]Придать положение полусидя, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:28 [1][1][1][1][1][1][1][1][1]Повернуть пострадавшего на бок, придав устойчивое положение, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: 34
+highlighter.js:28 [2][2][2][2][2][2][2][2][2]Оставить лежать на спине, контролировать состояние пострадавшего до приезда скорой медицинской помощи.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:45 ОТВЕТ ВЕРНЫЙ
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 6
+highlighter.js:21 HTMLCollection(6) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Является ли нарушением требований охраны труда, если Вы говорите по мобильному телефону, при переходе через дорогу?
+highlighter.js:28 Если нет приближающегося транспорта, то не является нарушением   selected: -1
+highlighter.js:28 Да   selected: -1
+highlighter.js:28 Нет   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Является ли нарушением требований охраны труда, если Вы говорите по мобильному телефону, при переходе через дорогу?
+highlighter.js:28 [0]Если нет приближающегося транспорта, то не является нарушением   selected: -1
+highlighter.js:28 [1]Да   selected: -1
+highlighter.js:28 [2]Нет   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 Является ли нарушением требований охраны труда, если Вы говорите по мобильному телефону, при переходе через дорогу?
+highlighter.js:28 [0][0]Если нет приближающегося транспорта, то не является нарушением   selected: -1
+highlighter.js:28 [1][1]Да   selected: 34
+highlighter.js:28 [2][2]Нет   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:45 ОТВЕТ ВЕРНЫЙ
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 7
+highlighter.js:21 HTMLCollection(7) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой периодичностью на объектах с массовым пребыванием людей должны проводиться практические тренировки по эвакуации людей при пожаре?
+highlighter.js:28 Не реже 1 раза в 9 месяцев   selected: -1
+highlighter.js:28 Не реже 1 раза в 3 месяца   selected: -1
+highlighter.js:28 Не реже 1 раза в полугодие   selected: -1
+highlighter.js:28 Не реже 1 раза в год   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой периодичностью на объектах с массовым пребыванием людей должны проводиться практические тренировки по эвакуации людей при пожаре?
+highlighter.js:28 [0]Не реже 1 раза в 9 месяцев   selected: -1
+highlighter.js:28 [1]Не реже 1 раза в 3 месяца   selected: -1
+highlighter.js:28 [2]Не реже 1 раза в полугодие   selected: -1
+highlighter.js:28 [3]Не реже 1 раза в год   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой периодичностью на объектах с массовым пребыванием людей должны проводиться практические тренировки по эвакуации людей при пожаре?
+highlighter.js:28 [0][0]Не реже 1 раза в 9 месяцев   selected: -1
+highlighter.js:28 [1][1]Не реже 1 раза в 3 месяца   selected: -1
+highlighter.js:28 [2][2]Не реже 1 раза в полугодие   selected: -1
+highlighter.js:28 [3][3]Не реже 1 раза в год   selected: 34
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:48 ОТВЕТ НЕВЕРНЫЙ!!!
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 7
+highlighter.js:21 HTMLCollection(7) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой периодичностью на объектах с массовым пребыванием людей должны проводиться практические тренировки по эвакуации людей при пожаре?
+highlighter.js:28 Не реже 1 раза в 9 месяцев   selected: -1
+highlighter.js:28 Не реже 1 раза в 3 месяца   selected: -1
+highlighter.js:28 Не реже 1 раза в полугодие   selected: -1
+highlighter.js:28 Не реже 1 раза в год   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой периодичностью на объектах с массовым пребыванием людей должны проводиться практические тренировки по эвакуации людей при пожаре?
+highlighter.js:28 [0]Не реже 1 раза в 9 месяцев   selected: -1
+highlighter.js:28 [1]Не реже 1 раза в 3 месяца   selected: -1
+highlighter.js:28 [2]Не реже 1 раза в полугодие   selected: -1
+highlighter.js:28 [3]Не реже 1 раза в год   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой периодичностью на объектах с массовым пребыванием людей должны проводиться практические тренировки по эвакуации людей при пожаре?
+highlighter.js:28 [0][0]Не реже 1 раза в 9 месяцев   selected: -1
+highlighter.js:28 [1][1]Не реже 1 раза в 3 месяца   selected: -1
+highlighter.js:28 [2][2]Не реже 1 раза в полугодие   selected: 34
+highlighter.js:28 [3][3]Не реже 1 раза в год   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:45 ОТВЕТ ВЕРНЫЙ
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 6
+highlighter.js:21 HTMLCollection(6) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой частотой в минуту должны проводить компрессии грудной клетки?
+highlighter.js:28 40-70.   selected: -1
+highlighter.js:28 90-120.   selected: -1
+highlighter.js:28 50-80.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой частотой в минуту должны проводить компрессии грудной клетки?
+highlighter.js:28 [0]40-70.   selected: -1
+highlighter.js:28 [1]90-120.   selected: -1
+highlighter.js:28 [2]50-80.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 3
+highlighter.js:23 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 С какой частотой в минуту должны проводить компрессии грудной клетки?
+highlighter.js:28 [0][0]40-70.   selected: -1
+highlighter.js:28 [1][1]90-120.   selected: 34
+highlighter.js:28 [2][2]50-80.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 3
+highlighter.js:40 HTMLCollection(3) [div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:45 ОТВЕТ ВЕРНЫЙ
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 7
+highlighter.js:21 HTMLCollection(7) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 У пострадавшего ранение предплечья, вытекает кровь пульсирующей струей алого цвета. Ваши действия по оказанию первой помощи?
+highlighter.js:28 Это артериальное кровотечение, следовательно для его остановки можно применить метод максимального сгибания конечности в суставе, если это не помогло, то наложить жгут на плечо.   selected: -1
+highlighter.js:28 Это артериальное кровотечение, следовательно необходимо наложить жгут ниже раны.   selected: -1
+highlighter.js:28 Это капиллярное кровотечение, следовательно достаточно наложить стерильную повязку на рану.   selected: -1
+highlighter.js:28 Это венозное кровотечение, следовательно необходимо наложить давящую повязку на рану.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 У пострадавшего ранение предплечья, вытекает кровь пульсирующей струей алого цвета. Ваши действия по оказанию первой помощи?
+highlighter.js:28 [0]Это артериальное кровотечение, следовательно для его остановки можно применить метод максимального сгибания конечности в суставе, если это не помогло, то наложить жгут на плечо.   selected: -1
+highlighter.js:28 [1]Это артериальное кровотечение, следовательно необходимо наложить жгут ниже раны.   selected: -1
+highlighter.js:28 [2]Это капиллярное кровотечение, следовательно достаточно наложить стерильную повязку на рану.   selected: -1
+highlighter.js:28 [3]Это венозное кровотечение, следовательно необходимо наложить давящую повязку на рану.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 У пострадавшего ранение предплечья, вытекает кровь пульсирующей струей алого цвета. Ваши действия по оказанию первой помощи?
+highlighter.js:28 [0][0]Это артериальное кровотечение, следовательно для его остановки можно применить метод максимального сгибания конечности в суставе, если это не помогло, то наложить жгут на плечо.   selected: 34
+highlighter.js:28 [1][1]Это артериальное кровотечение, следовательно необходимо наложить жгут ниже раны.   selected: -1
+highlighter.js:28 [2][2]Это капиллярное кровотечение, следовательно достаточно наложить стерильную повязку на рану.   selected: -1
+highlighter.js:28 [3][3]Это венозное кровотечение, следовательно необходимо наложить давящую повязку на рану.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 У пострадавшего ранение предплечья, вытекает кровь пульсирующей струей алого цвета. Ваши действия по оказанию первой помощи?
+highlighter.js:28 [0][0][0]Это артериальное кровотечение, следовательно для его остановки можно применить метод максимального сгибания конечности в суставе, если это не помогло, то наложить жгут на плечо.   selected: 34
+highlighter.js:28 [1][1][1]Это артериальное кровотечение, следовательно необходимо наложить жгут ниже раны.   selected: -1
+highlighter.js:28 [2][2][2]Это капиллярное кровотечение, следовательно достаточно наложить стерильную повязку на рану.   selected: -1
+highlighter.js:28 [3][3][3]Это венозное кровотечение, следовательно необходимо наложить давящую повязку на рану.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:45 ОТВЕТ ВЕРНЫЙ
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 7
+highlighter.js:21 HTMLCollection(7) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 В каких случаях использование защитных очков обязательно? Выберите все правильные варианты ответа
+highlighter.js:28 При следовании по территории предприятия по пешеходным маршрутам.   selected: -1
+highlighter.js:28 При выполнении производственных операций вне производственных помещений.   selected: -1
+highlighter.js:28 При посещении складских помещений: склады металла, проволоки, товарно-материальных ценностей и готовой продукции.   selected: -1
+highlighter.js:28 При нахождении в санитарно-бытовых помещениях.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 3
+highlighter.js:21 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:22 4
+highlighter.js:23 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+highlighter.js:26 В каких случаях использование защитных очков обязательно? Выберите все правильные варианты ответа
+highlighter.js:28 [0]При следовании по территории предприятия по пешеходным маршрутам.   selected: -1
+highlighter.js:28 [1]При выполнении производственных операций вне производственных помещений.   selected: -1
+highlighter.js:28 [2]При посещении складских помещений: склады металла, проволоки, товарно-материальных ценностей и готовой продукции.   selected: -1
+highlighter.js:28 [3]При нахождении в санитарно-бытовых помещениях.   selected: -1
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 3
+highlighter.js:38 HTMLCollection(3) [h4.ant-typography.text-center, h4.ant-typography, div.ant-typography]
+highlighter.js:39 4
+highlighter.js:40 HTMLCollection(4) [div.ant-card-body, div.ant-card-body, div.ant-card-body, div.ant-card-body]
+react-dom.production.min.js:216 DOMException: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
+    at wc (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1813038)
+    at _u (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1824850)
+    at e.unstable_runWithPriority (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1845468)
+    at Wi (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1767825)
+    at Pu (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1822808)
+    at gu (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1818894)
+    at https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1768048
+    at e.unstable_runWithPriority (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1845468)
+    at Wi (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1767825)
+    at Gi (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1767993)
+cc @ 2.c9b74a4e.chunk.js:2
+n.callback @ 2.c9b74a4e.chunk.js:2
+fo @ 2.c9b74a4e.chunk.js:2
+hc @ 2.c9b74a4e.chunk.js:2
+_u @ 2.c9b74a4e.chunk.js:2
+e.unstable_runWithPriority @ 2.c9b74a4e.chunk.js:2
+Wi @ 2.c9b74a4e.chunk.js:2
+Pu @ 2.c9b74a4e.chunk.js:2
+gu @ 2.c9b74a4e.chunk.js:2
+(анонимная) @ 2.c9b74a4e.chunk.js:2
+e.unstable_runWithPriority @ 2.c9b74a4e.chunk.js:2
+Wi @ 2.c9b74a4e.chunk.js:2
+Gi @ 2.c9b74a4e.chunk.js:2
+Yi @ 2.c9b74a4e.chunk.js:2
+Lt @ 2.c9b74a4e.chunk.js:2
+$e @ 2.c9b74a4e.chunk.js:2
+react-dom.production.min.js:216 DOMException: Failed to execute 'insertBefore' on 'Node': The node before which the new node is to be inserted is not a child of this node.
+    at Oc (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1812368)
+    at Oc (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1812441)
+    at Oc (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1812441)
+    at bc (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1811866)
+    at _u (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1824647)
+    at e.unstable_runWithPriority (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1845468)
+    at Wi (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1767825)
+    at Pu (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1822808)
+    at gu (https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1818894)
+    at https://sqp.mobileapp.severstal.com/static/js/2.c9b74a4e.chunk.js:2:1768048
+cc @ 2.c9b74a4e.chunk.js:2
+n.callback @ 2.c9b74a4e.chunk.js:2
+fo @ 2.c9b74a4e.chunk.js:2
+hc @ 2.c9b74a4e.chunk.js:2
+_u @ 2.c9b74a4e.chunk.js:2
+e.unstable_runWithPriority @ 2.c9b74a4e.chunk.js:2
+Wi @ 2.c9b74a4e.chunk.js:2
+Pu @ 2.c9b74a4e.chunk.js:2
+gu @ 2.c9b74a4e.chunk.js:2
+(анонимная) @ 2.c9b74a4e.chunk.js:2
+e.unstable_runWithPriority @ 2.c9b74a4e.chunk.js:2
+Wi @ 2.c9b74a4e.chunk.js:2
+Gi @ 2.c9b74a4e.chunk.js:2
+Yi @ 2.c9b74a4e.chunk.js:2
+Lt @ 2.c9b74a4e.chunk.js:2
+$e @ 2.c9b74a4e.chunk.js:2
+highlighter.js:107 EVENT EXIT
+index.ts:13 Bridge ~ version 1.1.0
+index.ts:23 Wrong platform
+(анонимная) @ index.ts:23
+1391 @ index.ts:30
+f @ (индекс):1
+t @ (индекс):1
+r @ (индекс):1
+(анонимная) @ main.6f4421db.chunk.js:1
+highlighter.js:4 START
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 2
+highlighter.js:21 HTMLCollection(2) [h4.ant-typography.text-center, div.ant-typography.text-center.mb-1]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 2
+highlighter.js:38 HTMLCollection(2) [h4.ant-typography.text-center, div.ant-typography.text-center.mb-1]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 2
+highlighter.js:21 HTMLCollection(2) [h4.ant-typography.text-center, div.ant-typography.text-center.mb-1]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 2
+highlighter.js:38 HTMLCollection(2) [h4.ant-typography.text-center, div.ant-typography.text-center.mb-1]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []
+highlighter.js:82 mousedown
+highlighter.js:17 >>> GetVopros
+highlighter.js:20 2
+highlighter.js:21 HTMLCollection(2) [h4.ant-typography.text-center, div.ant-typography.text-center.mb-1]
+highlighter.js:22 0
+highlighter.js:23 HTMLCollection []
+highlighter.js:34 >>> GetYesNo
+highlighter.js:37 2
+highlighter.js:38 HTMLCollection(2) [h4.ant-typography.text-center, div.ant-typography.text-center.mb-1]
+highlighter.js:39 0
+highlighter.js:40 HTMLCollection []

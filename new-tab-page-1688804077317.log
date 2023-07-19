@@ -1,0 +1,28 @@
+class myclass{
+  constructor(height=15, width) {
+    this.A = height;
+    this.B = width;
+    this.C = 55;
+  }
+    get a(){
+        return 12+this.C+this.B+this.A
+    }
+}
+undefined
+var mv1 = new myclass(45,42);
+var mv2 = new myclass(44,45);
+var mv3 = new myclass(0,111);
+var ppp = {}
+undefined
+ppp[0] = mv1
+myclass {A: 45, B: 42, C: 55}
+ppp['q'] = mv3
+myclass {A: 0, B: 111, C: 55}
+ppp.q
+myclass {A: 0, B: 111, C: 55}A: 0B: 111C: 55a: 178[[Prototype]]: Objecta: (…)constructor: class myclassget a: ƒ a()length: 0name: "get a"arguments: (…)caller: (…)[[FunctionLocation]]: VM2768:7[[Prototype]]: ƒ ()apply: ƒ apply()arguments: (…)bind: ƒ bind()call: ƒ call()caller: (…)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()[[FunctionLocation]]: ​[[Prototype]]: Object[[Prototype]]: Object
+ppp[1].a
+VM2955:1 Uncaught TypeError: Cannot read properties of undefined (reading 'a')
+    at <anonymous>:1:8
+(анонимная) @ VM2955:1
+ppp[0].a
+154

@@ -1,0 +1,2 @@
+function createNumberKeyboard(a,b,c,d){return new window.SimpleKeyboard.default(b,{inputName:a,onChange:function(a){return d(a)},layout:numberKeyboardLayoutProperties,display:numberKeyboardDisplayProperties,theme:c,syncInstanceInputs:!0,mergeDisplay:!0})}
+function createPersonalNumberKeyboard(a,b,c,d){return new window.SimpleKeyboard.default(b,{inputName:a,onChange:function(a){return d(a)},layout:personalNumberKeyboardLayoutProperties,display:numberKeyboardDisplayProperties,theme:c,syncInstanceInputs:!0,mergeDisplay:!0})};

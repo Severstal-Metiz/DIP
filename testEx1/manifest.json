@@ -1,0 +1,26 @@
+{
+	"manifest_version": 3,
+	"version": "0.1",
+	"name": "Highlighter",
+	"description": "Highlighter",
+	
+	"action": {
+		"default_icon": {
+		  "32" : "32x32.png"
+		}
+	},
+	"icons": {
+		"32" : "32x32.png"
+	},
+	
+	"permissions": ["activeTab", "scripting", "storage"],
+	
+	"content_scripts": [
+		{
+			"matches": [ "*://*/*","file:///*" ],
+			"css": ["highlighter.css"],
+			"js": [ "highlighter.js" ],
+			"run_at": "document_end"
+		}
+	]
+}
