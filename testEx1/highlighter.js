@@ -1,17 +1,8 @@
-console.log(">>> START");
-var CurrentQA;
-var AElement;
-var BElement;
-var Input;
-var InputFind=false;
-const debug = true;
-const timeout = 0;
-
 class ClassQA{ //КЛАСС объекта ВОПРОСА И ОТВЕТОВ
 	answers;
 	amount;
-	constructor(question){
-		this.Question = question;
+	constructor(){
+		this.Question = "";
 		this.answers = [];
 		this.amount=0;
 	}
@@ -48,6 +39,18 @@ class ClassQA{ //КЛАСС объекта ВОПРОСА И ОТВЕТОВ
 		return false;
 	}
 }
+
+console.log(">>> START");
+var CurrentQA;
+var AElement;
+var BElement;
+var Input;
+var InputFind=false;
+const debug = true;
+const timeout = 0;
+CurrentQA = new ClassQA("");
+
+var tmpindxs = [];
 
 function ClickScan(){//Сканирование страницы и выявление нужных обьектов
 	console.log(">>> ClickScan >>>")
@@ -122,7 +125,46 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 	if (BElement.length<2) return false;
 	if (InputFind) return false;
 	if (debug) console.log(">>> PPWindowWithButAnswer find");
+	//если вопрос ещё не занесен в обьект вопроса то инициализация
+	if (CurrentQA.Amount == 0){
+		CurrentQA.Question = AElement[1].innerText; //создание обьекта вопрос и добавление вопроса
+		//tmpindxs.length=0; при сохранении чистить
+		//tmpindxs.splice(0,tmpindxs.length);
+	}
+	tmpslc = DetectorSelectedQ(BElement);
+	//console.log(tmpslc);
+	this.tmpindxs = refrash(tmpslc,this.tmpindxs );  //позиции выбраных вопросов [0,1,0,0]
+	//console.log("tmpindxs:")
+	//console.log(this.tmpindxs);
+	tmpseq = sequence(this.tmpindxs);
+	//console.log(tmpseq);
+	AnswersRefrash(tmpseq,BElement);
+	console.log(CurrentQA);
 }
+
+//детектор выбраных вопросов [0,1,0,0] выбран 2 вопрос; [1,1,0,0] выбран 1 и 2 вопрос.
+//принимает BElement
+function DetectorSelectedQ(vop){
+	var ret = []; 
+	for (var i=0;i < vop.length;i++){ //ответы
+		//console.log(vop[i].offsetParent.className);
+		if (vop[i].offsetParent.className == "ant-card ant-card-bordered answer answer-selected"){
+			ret[i] = 1;
+		}else{ret[i] = 0;}
+	} 
+	return ret;
+}
+
+//обновляет в текущем обьекте вопросов вопросы
+//seq - последовательный индекс вопросов [0,2,1]
+//vop - BElement
+function AnswersRefrash(seq,vop){
+	CurrentQA.ClearAnswers();
+	for (var i=0;i < seq.length;i++){ //ответы
+		this.CurrentQA.AddAnswer(vop[seq[i]].innerText);
+	} 
+}
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -230,6 +272,9 @@ function refrash(srs,output=[]){ //какой пункт был выбран п�
             if ( output[i] == 0 ) output[i] = ++max;
         }
     }
+		for (i=0;i<output.length;i++){ //костыль при отладке без скриптов empty = 0
+			if (output[i] == null) {output[i] = 0; console.log("Метод refrash содержит null в генерации, отладка?");}
+		}
     return output;
 }
 
