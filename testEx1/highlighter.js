@@ -110,6 +110,8 @@ function GetInput(){//ЗАБИРАЕТ ЗНАЧЕНИЯ ИЗ ПОЛЯ ВВОДА
 function ParserPip(){//последовательность парсера
 	if (PPWindowWithInputArea()) return;
 	if (PPWindowWithButAnswer()) return;
+	//if (PPWindowWithRight()) return;
+	//if (PPWindowWithNotTrue()) return;
 }
 
 function PPWindowWithInputArea(){//Детектор Окна с строчкой ввода
@@ -148,7 +150,7 @@ function DetectorSelectedQ(vop){
 	var ret = []; 
 	for (var i=0;i < vop.length;i++){ //ответы
 		//console.log(vop[i].offsetParent.className);
-		if (vop[i].offsetParent.className == "ant-card ant-card-bordered answer answer-selected"){
+		if (vop[i].offsetParent.className.indexOf("answer-selected") >= 0){
 			ret[i] = 1;
 		}else{ret[i] = 0;}
 	} 

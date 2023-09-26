@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
 	"version": "0.1",
-	"name": "Highlighter",
-	"description": "Highlighter",
+	"name": "Вредсмертный",
+	"description": "Твой не заменимый помошник",
 	
 	"action": {
 		"default_icon": {
