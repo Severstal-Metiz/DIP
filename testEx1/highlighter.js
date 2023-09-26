@@ -1,8 +1,9 @@
 class ClassQA{ //КЛАСС объекта ВОПРОСА И ОТВЕТОВ
 	answers;
 	amount;
+	question; //???????????????
 	constructor(){
-		this.Question = "";
+		this.question = "";  //???????????????
 		this.answers = [];
 		this.amount=0;
 	}
@@ -48,6 +49,7 @@ var Input;
 var InputFind=false;
 const debug = true;
 const timeout = 0;
+var DB = [];
 CurrentQA = new ClassQA("");
 
 var tmpindxs = [];
@@ -110,9 +112,29 @@ function GetInput(){//ЗАБИРАЕТ ЗНАЧЕНИЯ ИЗ ПОЛЯ ВВОДА
 function ParserPip(){//последовательность парсера
 	if (PPWindowWithInputArea()) return;
 	if (PPWindowWithButAnswer()) return;
-	//if (PPWindowWithRight()) return;
+	if (PPWindowWithRight()) return;
 	//if (PPWindowWithNotTrue()) return;
 }
+
+function PPWindowWithRight(){ //Детектор окна с подтверждением правильного ответа
+	if (AElement.length!=3) return false;
+	if (BElement.length!=0) return false;
+	if(AElement[0].innerText != "Правильный ответ") return false;
+	if (debug) console.log(">>> PPWindowWithRight find");
+	//проверка на наличие ОТВЕТОВ
+	//Delmy debug создаю фиктивный вопрос и ответ для проверки ->>>
+		CurrentQA.Question = "Фиктивный вопрос для проверки 2";
+		CurrentQA.ClearAnswers();
+		CurrentQA.AddAnswer("Ответ 1");
+		CurrentQA.AddAnswer("Ответ 2");
+		CurrentQA.AddAnswer("Ответ 3");
+	// <<<-
+	if (CurrentQA.Amount == 0) return false;
+	LoadDB();
+	//RefrashDB();
+	//SaveDB();
+}
+
 
 function PPWindowWithInputArea(){//Детектор Окна с строчкой ввода
 	if (AElement.length!=3) return false;
@@ -196,6 +218,56 @@ function Timeout(time){
 function TOfunction(){
 	console.log("TimeoutEND");
 }
+
+function LoadDB(){ //загрузка базы данных (из хранилища) 
+	chrome.storage.local.get(["key"]).then((result) => {
+		if (result.key == null) return;
+		if (!Array.isArray(result.key)) return;
+		DB = result.key;
+		console.log("LoadDB()");
+		console.log(DB);
+		RefrashDB();
+		SaveDB();
+	});
+				
+}
+
+function SearchInDB(){//поиск существующего вопроса в базе данных (в памяти)
+	console.log("SearchInDB()");
+	//console.log(DB.length);
+	//if (DB.length == 0) return -1;
+	for (var i=0;i<DB.length;i++){
+		//console.log(DB[i].question);
+		//console.log(CurrentQA.question);
+		if (DB[i].question == CurrentQA.question){
+			return i; //возвращаем индекс найденой записи
+		} 
+	}
+	return -1;
+}
+
+function SaveDB(){//сохранение DB (в хранилище)
+	if (DB.length == 0) return;
+	chrome.storage.local.set({ key: DB }).then(() => {
+	});
+		console.log("SaveDB()");
+		console.log(DB);
+}
+
+function RefrashDB() {//обновление Базы (в памяти)
+	if(CurrentQA.Amount == 0) return;
+	index = SearchInDB();
+	if (index >=0 ){ //если есть
+		DB[index] = CurrentQA;
+		console.log("DB имеет запись под индексом "+ index);
+	} else {
+		DB[DB.length] = CurrentQA;
+		console.log("DB еще не имеет записи");
+	}
+	console.log("RefrashDB()");
+	console.log(DB);
+}
+
 
 function SaveDBOld(select){
 	chrome.storage.local.set({ key: select }).then(() => {
