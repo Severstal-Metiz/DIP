@@ -101,10 +101,10 @@ function GetInput(){//ЗАБИРАЕТ ЗНАЧЕНИЯ ИЗ ПОЛЯ ВВОДА
 			InputFind=false;
 			return;
 		}
-		if (debug){console.log("input.value = "+input.value+"  input.class="+input.className); console.log(input);};
+		//if (debug){console.log("input.value = "+input.value+"  input.class="+input.className); console.log(input);};
 		Input = input.value;
 		if (input.className=="ant-input custom-input") InputFind=true; else InputFind=false;
-		if (debug){if (InputFind) {console.log("Найден импут");};};
+		//if (debug){if (InputFind) {console.log("Найден импут");};};
 }
 
 function ParserPip(){//последовательность парсера
@@ -120,6 +120,15 @@ function PPWindowWithInputArea(){//Детектор Окна с строчкой
 	if (!InputFind) return false;
 	if (ClassQA.StringIsEmpty(Input,"PPWindowWithInputArea"))return false;
 	if (debug) console.log(">>> PPWindowWithInputArea find");
+	//если вопрос ещё не занесен в обьект вопроса то инициализация
+	if (CurrentQA.Amount == 0){
+		CurrentQA.Question = AElement[1].innerText; //создание обьекта вопрос и добавление вопроса
+		//tmpindxs.length=0; при сохранении чистить
+		//tmpindxs.splice(0,tmpindxs.length);
+	}
+	CurrentQA.ClearAnswers();
+	CurrentQA.AddAnswer(Input);
+	console.log(CurrentQA);
 }
 
 function PPWindowWithButAnswer(){//Детектор Окна одним или несколькими правильным ответом
