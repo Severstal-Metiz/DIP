@@ -123,16 +123,14 @@ function PPWindowWithRight(){ //Детектор окна с подтвержд�
 	if (debug) console.log(">>> PPWindowWithRight find");
 	//проверка на наличие ОТВЕТОВ
 	//Delmy debug создаю фиктивный вопрос и ответ для проверки ->>>
-		CurrentQA.Question = "Фиктивный вопрос для проверки 2";
+		CurrentQA.Question = "Фиктивный вопрос для проверки 3";
 		CurrentQA.ClearAnswers();
 		CurrentQA.AddAnswer("Ответ 1");
 		CurrentQA.AddAnswer("Ответ 2");
 		CurrentQA.AddAnswer("Ответ 3");
 	// <<<-
 	if (CurrentQA.Amount == 0) return false;
-	LoadDB();
-	//RefrashDB();
-	//SaveDB();
+	LoadRefrashAndSaveDB();
 }
 
 
@@ -219,8 +217,8 @@ function TOfunction(){
 	console.log("TimeoutEND");
 }
 
-function LoadDB(){ //загрузка базы данных (из хранилища) 
-	chrome.storage.local.get(["key"]).then((result) => {
+function LoadRefrashAndSaveDB(){ //асинхронная ёбань с хранилищем
+	chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
 		if (result.key == null) return;
 		if (!Array.isArray(result.key)) return;
 		DB = result.key;
