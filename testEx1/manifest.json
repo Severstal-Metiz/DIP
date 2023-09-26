@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"version": "0.1",
 	"name": "Вредсмертный",
-	"description": "Твой не заменимый помошник",
+	"description": "Твой не заменимый помошник sqp.mobileapp.severstal.com",
 	
 	"action": {
 		"default_icon": {
