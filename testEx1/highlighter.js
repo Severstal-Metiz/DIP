@@ -117,17 +117,18 @@ function ParserPip(){//последовательность парсера
 }
 
 function PPWindowWithRight(){ //Детектор окна с подтверждением правильного ответа
-	if (AElement.length!=3) return false;
+	//if (AElement.length!=3) return false;
 	if (BElement.length!=0) return false;
 	if(AElement[0].innerText != "Правильный ответ") return false;
 	if (debug) console.log(">>> PPWindowWithRight find");
 	//проверка на наличие ОТВЕТОВ
 	//Delmy debug создаю фиктивный вопрос и ответ для проверки ->>>
-		CurrentQA.Question = "Фиктивный вопрос для проверки 3";
+		/* CurrentQA.Question = "Фиктивный вопрос для проверки 3";
 		CurrentQA.ClearAnswers();
 		CurrentQA.AddAnswer("Ответ 1");
 		CurrentQA.AddAnswer("Ответ 2");
 		CurrentQA.AddAnswer("Ответ 3");
+		*/
 	// <<<-
 	if (CurrentQA.Amount == 0) return false;
 	LoadRefrashAndSaveDB();
