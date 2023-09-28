@@ -150,12 +150,12 @@ function PPWindowWithRight(){ //Детектор окна с подтвержд�
 	if (debug) console.log(">>> PPWindowWithRight find");
 	//проверка на наличие ОТВЕТОВ
 	//Delmy debug создаю фиктивный вопрос и ответ для проверки ->>>
-		/* CurrentQA.Question = "Фиктивный вопрос для проверки 3";
-		CurrentQA.ClearAnswers();
-		CurrentQA.AddAnswer("Ответ 1");
-		CurrentQA.AddAnswer("Ответ 2");
-		CurrentQA.AddAnswer("Ответ 3");
-		*/
+		//CurrentQA.Question = "У пострадавшего термический ожог кисти, кожа покраснела, появились «водяные» пузыри. Ваши действия по оказанию первой помощи?";
+		//CurrentQA.ClearAnswers();
+		//CurrentQA.AddAnswer("Необходимо наложить повязку на ожоговую поверхность и приложить холод");
+		//CurrentQA.AddAnswer("Ответ 2");
+		//CurrentQA.AddAnswer("Ответ 3");
+		
 	// <<<-
 	if (CurrentQA.Amount == 0) return false;
 	LoadRefrashAndSaveDB();
@@ -177,6 +177,7 @@ function PPWindowWithInputArea(){//Детектор Окна с строчкой
 	CurrentQA.ClearAnswers();
 	CurrentQA.AddAnswer(Input);
 	console.log(CurrentQA);
+	LoadFindAndPrintAnswers();
 }
 
 function PPWindowWithButAnswer(){//Детектор Окна одним или несколькими правильным ответом
@@ -199,6 +200,7 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 	//console.log(tmpseq);
 	AnswersRefrash(tmpseq,BElement);
 	console.log(CurrentQA);
+	LoadFindAndPrintAnswers();
 }
 
 //детектор выбраных вопросов [0,1,0,0] выбран 2 вопрос; [1,1,0,0] выбран 1 и 2 вопрос.
@@ -245,6 +247,25 @@ function TOfunction(){
 	console.log("TimeoutEND");
 }
 
+
+function LoadFindAndPrintAnswers(){ //асинхронная ёбань с хранилищем Находит вопрос в БД и печатает его для помощи
+	chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
+		if (result.key == null) return;
+		if (!Array.isArray(result.key)) return;
+		if (CurrentQA.question == "") return;
+		DB = result.key;
+		console.log("LoadFindAndPrintAnswers()");
+		index = SearchInDB();
+		if (index >= 0){ //вопрос найден в БД
+			console.log("-------->>>> ВОПРОС НАЙДЕН. <<<<--------" + index + " запись в БД");
+			console.log("ОТВЕТЫ:");
+			for (let i = 0; i < DB[index].answers.length; i++) {
+				console.log( (i+1) + ") " + DB[index].answers[i]);	
+			}
+		}
+	});
+}
+
 function LoadRefrashAndSaveDB(){ //асинхронная ёбань с хранилищем
 	chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
 		if (result.key == null) return;
@@ -255,7 +276,6 @@ function LoadRefrashAndSaveDB(){ //асинхронная ёбань с хран
 		RefrashDB();
 		SaveDB();
 	});
-				
 }
 
 function SearchInDB(){//поиск существующего вопроса в базе данных (в памяти)
@@ -275,6 +295,9 @@ function SearchInDB(){//поиск существующего вопроса в 
 function SaveDB(){//сохранение DB (в хранилище)
 	if (DB.length == 0) return;
 	chrome.storage.local.set({ key: DB }).then(() => {
+		//очистка
+		tmpindxs.length=0;
+		//CurrentQA.ClearAnswers();
 	});
 		console.log("SaveDB()");
 		console.log(DB);
