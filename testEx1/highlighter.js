@@ -248,7 +248,7 @@ function TOfunction(){
 }
 
 
-function LoadFindAndPrintAnswers(){ //асинхронная ёбань с хранилищем Находит вопрос в БД и печатает его для помощи
+function LoadFindAndPrintAnswers(){  //асинхронная ёбань с хранилищем Находит вопрос в БД и печатает его для помощи
 	chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
 		if (result.key == null) return;
 		if (!Array.isArray(result.key)) return;
