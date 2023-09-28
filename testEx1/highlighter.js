@@ -113,8 +113,35 @@ function ParserPip(){//последовательность парсера
 	if (PPWindowWithInputArea()) return;
 	if (PPWindowWithButAnswer()) return;
 	if (PPWindowWithRight()) return;
-	//if (PPWindowWithNotTrue()) return;
+	if (PPWindowWithNotTrue()) return;
 }
+
+
+function PPWindowWithNotTrue(){ //Детектор окна с подтверждением неправильного ответа
+	//if (AElement.length!=3) return false;
+	if (BElement.length!=0) return false;
+	if(AElement[0].innerText != "Неправильный ответ") return false;
+	if (debug) console.log(">>> PPWindowWithNotTrue find");
+	//проверка на наличие ОТВЕТОВ
+	//Delmy debug создаю фиктивный вопрос и ответ для проверки ->>>
+		/*
+		CurrentQA.Question = "Фиктивный вопрос для проверки 4";
+		CurrentQA.ClearAnswers();
+		CurrentQA.AddAnswer("Ответ ошибка 1");
+		CurrentQA.AddAnswer("Ответ ошибка 2");
+		CurrentQA.AddAnswer("Ответ ошибка 3");
+		  */
+	// <<<-
+	if (CurrentQA.Amount == 0) return false;
+	CurrentQA.ClearAnswers();
+	for (let i = 2; i < AElement.length; i++) { //получаем правильные ответы из подсказки
+		tmpstr = AElement[i].innerText;
+		tmpstr2 = tmpstr.slice(tmpstr.indexOf(")")+2);
+		CurrentQA.AddAnswer(tmpstr2);
+	}
+	LoadRefrashAndSaveDB();
+}
+
 
 function PPWindowWithRight(){ //Детектор окна с подтверждением правильного ответа
 	//if (AElement.length!=3) return false;
