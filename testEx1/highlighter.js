@@ -45,20 +45,22 @@ console.log(">>> START");
 var CurrentQA;
 var AElement;
 var BElement;
+var CElement;
 var Input;
 var InputFind=false;
 const debug = true;
-const timeout = 0;
+const timeout =0;//= 500;
 var DB = [];
 CurrentQA = new ClassQA("");
 
 var tmpindxs = [];
 
 function ClickScan(){//Сканирование страницы и выявление нужных обьектов
-	console.log(">>> ClickScan >>>")
+	if (debug) console.log(">>> ClickScan >>>")
 	AElement = document.getElementsByClassName('ant-typography'); //массив ВОПРОС, ОТВ1, ОТВ2
 	BElement = document.getElementsByClassName('ant-card-body');
-	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement);};
+	CElement = document.getElementsByClassName('ant-space-item');
+	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("CElement"); console.log(CElement);};
 }
 
 
@@ -134,10 +136,18 @@ function PPWindowWithNotTrue(){ //Детектор окна с подтверж�
 	// <<<-
 	if (CurrentQA.Amount == 0) return false;
 	CurrentQA.ClearAnswers();
-	for (let i = 2; i < AElement.length; i++) { //получаем правильные ответы из подсказки
-		tmpstr = AElement[i].innerText;
+
+	if (AElement[2].innerText.indexOf("Версия:") == 0) //хз сработает или нет. В Неправильный ответ
+	{
+		tmpstr = CElement[6].innerText;
 		tmpstr2 = tmpstr.slice(tmpstr.indexOf(")")+2);
 		CurrentQA.AddAnswer(tmpstr2);
+	}else{
+		for (let i = 2; i < AElement.length; i++) { //получаем правильные ответы из подсказки
+			tmpstr = AElement[i].innerText;
+			tmpstr2 = tmpstr.slice(tmpstr.indexOf(")")+2);
+			CurrentQA.AddAnswer(tmpstr2);
+		}		
 	}
 	LoadRefrashAndSaveDB();
 }
@@ -176,7 +186,7 @@ function PPWindowWithInputArea(){//Детектор Окна с строчкой
 	}
 	CurrentQA.ClearAnswers();
 	CurrentQA.AddAnswer(Input);
-	console.log(CurrentQA);
+	if (debug) console.log(CurrentQA);
 	LoadFindAndPrintAnswers();
 }
 
@@ -199,7 +209,7 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 	tmpseq = sequence(this.tmpindxs);
 	//console.log(tmpseq);
 	AnswersRefrash(tmpseq,BElement);
-	console.log(CurrentQA);
+	if (debug) console.log(CurrentQA);
 	LoadFindAndPrintAnswers();
 }
 
@@ -254,7 +264,7 @@ function LoadFindAndPrintAnswers(){  //асинхронная ёбань с хр
 		if (!Array.isArray(result.key)) return;
 		if (CurrentQA.question == "") return;
 		DB = result.key;
-		console.log("LoadFindAndPrintAnswers()");
+		if (debug) console.log("LoadFindAndPrintAnswers()");
 		index = SearchInDB();
 		if (index >= 0){ //вопрос найден в БД
 			console.log("-------->>>> ВОПРОС НАЙДЕН. <<<<--------" + index + " запись в БД");
@@ -271,15 +281,15 @@ function LoadRefrashAndSaveDB(){ //асинхронная ёбань с хран
 		if (result.key == null) return;
 		if (!Array.isArray(result.key)) return;
 		DB = result.key;
-		console.log("LoadDB()");
-		console.log(DB);
+		if (debug) console.log("LoadDB()");
+		if (debug) console.log(DB);
 		RefrashDB();
 		SaveDB();
 	});
 }
 
 function SearchInDB(){//поиск существующего вопроса в базе данных (в памяти)
-	console.log("SearchInDB()");
+	if (debug) console.log("SearchInDB()");
 	//console.log(DB.length);
 	//if (DB.length == 0) return -1;
 	for (var i=0;i<DB.length;i++){
@@ -299,8 +309,8 @@ function SaveDB(){//сохранение DB (в хранилище)
 		tmpindxs.length=0;
 		//CurrentQA.ClearAnswers();
 	});
-		console.log("SaveDB()");
-		console.log(DB);
+		if (debug) console.log("SaveDB()");
+		if (debug) console.log(DB);
 }
 
 function RefrashDB() {//обновление Базы (в памяти)
@@ -308,13 +318,13 @@ function RefrashDB() {//обновление Базы (в памяти)
 	index = SearchInDB();
 	if (index >=0 ){ //если есть
 		DB[index] = CurrentQA;
-		console.log("DB имеет запись под индексом "+ index);
+		if (debug) console.log("DB имеет запись под индексом "+ index);
 	} else {
 		DB[DB.length] = CurrentQA;
-		console.log("DB еще не имеет записи");
+		if (debug) console.log("DB еще не имеет записи");
 	}
-	console.log("RefrashDB()");
-	console.log(DB);
+	if (debug) console.log("RefrashDB()");
+	if (debug) console.log(DB);
 }
 
 
