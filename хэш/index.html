@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ХЭШ</title>
+  </head>
+  <body>
+    <script src="sha3.js"></script>
+    <script>
+      //var hash = sha3_256('Ответ 1 русскими буквами УХХХ!!! /"БЛЯ/" %%% !!!&&&??? ');
+      var hash = shake128('Ответ 1 русскими буквами УХХХ!!! /"БЛЯ/" %%% !!!&&&??? ', 128);
+      console.log(hash);
+    </script>
+  </body>
+</html>
