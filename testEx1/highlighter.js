@@ -715,6 +715,7 @@ class ClassQA{ //КЛАСС объекта ВОПРОСА И ОТВЕТОВ
 	}
 
 }
+/////////////////////////////////////
 
 console.log(">>> START");
 var CurrentQA;
@@ -730,12 +731,36 @@ CurrentQA = new ClassQA("");
 
 var tmpindxs = [];
 
+var helpDiv;
+var helpDivid = "helpDividRomixERR";
+function InitialHelpDiv(){
+    if (document.getElementById(helpDivid) == null){
+        helpDiv = document.createElement('div');
+        //helpDiv.className = "alert";
+        //helpDiv.innerHTML = "";
+        helpDiv.id=helpDivid;    
+        //document.body.append(helpDiv);
+		document.body.prepend(helpDiv);
+    }
+}
+
+function PrintHelpMessage(html){
+	if (document.getElementById(helpDivid)==null) InitialHelpDiv();
+    if (document.getElementById(helpDivid)!=null) {
+        helpDiv.innerHTML = html; 
+    }
+	//или ТАК
+	//document.getElementsByClassName("ant-typography-secondary")[0].innerHTML=html;
+}
+
+
 function ClickScan(){//Сканирование страницы и выявление нужных обьектов
 	if (debug) console.log(">>> ClickScan >>>")
 	AElement = document.getElementsByClassName('ant-typography'); //массив ВОПРОС, ОТВ1, ОТВ2
 	BElement = document.getElementsByClassName('ant-card-body');
 	CElement = document.getElementsByClassName('ant-space-item');
 	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("CElement"); console.log(CElement);};
+	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?");
 }
 
 
@@ -958,11 +983,14 @@ function LoadFindAndPrintAnswers(){  //асинхронная ёбань с хр
 		if (debug) console.log("LoadFindAndPrintAnswers()");
 		index = SearchInDB();
 		if (index >= 0){ //вопрос найден в БД
+			var msg = "-------->>>> ВОПРОС НАЙДЕН. <<<<--------<div>";
 			console.log("-------->>>> ВОПРОС НАЙДЕН. <<<<--------" + index + " запись в БД");
 			console.log("ОТВЕТЫ:");
 			for (let i = 0; i < DB[index].answers.length; i++) {
-				console.log( (i+1) + ") " + DB[index].answers[i]);	
+				console.log( (i+1) + ") " + DB[index].answers[i]);
+				msg=msg + "<div>"+ (i+1) + ") " + DB[index].answers[i];
 			}
+			PrintHelpMessage(msg);
 		}
 	});
 }
