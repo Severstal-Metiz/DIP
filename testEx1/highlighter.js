@@ -899,6 +899,7 @@ function PPWindowWithInputArea(){//Детектор Окна с строчкой
 	CurrentQA.ClearAnswers();
 	CurrentQA.AddAnswer(Input);
 	if (debug) console.log(CurrentQA);
+	CurrentQA.hesh = "";
 	LoadFindAndPrintAnswers();
 	return true;
 }
@@ -908,7 +909,6 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 	if (BElement.length<2) return false;
 	if (InputFind) return false;
 	if (debug) console.log(">>> PPWindowWithButAnswer find");
-	TODO: CurrentQA.CalculateHesh //Тут надо генерировать хеш для последующего поиска по базе
 	//если вопрос ещё не занесен в обьект вопроса то инициализация
 	/*if (CurrentQA.Amount == 0){
 		CurrentQA.Question = AElement[1].innerText; //создание обьекта вопрос и добавление вопроса
@@ -925,6 +925,12 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 	//console.log(tmpseq);
 	AnswersRefrash(tmpseq,BElement);
 	if (debug) console.log(CurrentQA);
+	var tempB = [];  //Тут надо генерировать хеш для последующего поиска по базе
+	for (let i = 0; i < BElement.length; i++) {
+		//console.log(BElement[i].innerText);
+		tempB[i] = BElement[i].innerText;
+	}
+	CurrentQA.CalculateHesh(tempB);
 	LoadFindAndPrintAnswers();
 	return true;
 }
@@ -1011,12 +1017,12 @@ function SearchInDB(){//поиск существующего вопроса в 
 	if (debug) console.log("SearchInDB()");
 	//console.log(DB.length);
 	//if (DB.length == 0) return -1;
-	TODO: //дополнить поиск по хешу. если хеш совпал то заебись, пустой то значит тоже заебись
 	for (var i=0;i<DB.length;i++){
 		//console.log(DB[i].question);
 		//console.log(CurrentQA.question);
 		if (DB[i].question == CurrentQA.question){
-			return i; //возвращаем индекс найденой записи
+			if (DB[i].hesh == CurrentQA.hesh) return i; //возвращаем индекс найденой записи. дополнить поиск по хешу. если хеш совпал то заебись, пустой то значит тоже заебись
+			if (DB[i].hesh == "") return i; //возвращаем индекс найденой записи
 		} 
 	}
 	return -1;
