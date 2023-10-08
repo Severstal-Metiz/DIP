@@ -734,16 +734,24 @@ var tmpindxs = [];
 
 var helpDiv;
 var helpDivid = "helpDividRomixERR";
+var settingsDiv;
+var loadbtn;
+var savebtn;
 function InitialHelpDiv(){
     if (document.getElementById(helpDivid) == null){
+		settingsDiv = document.createElement('div');
+		settingsDiv.innerHTML = "<div> <button id=\"loadbtn\">load DB</button> <button id=\"savebtn\">save DB</button>";
         helpDiv = document.createElement('div');
-        //helpDiv.className = "alert";
-        //helpDiv.innerHTML = "";
         helpDiv.id=helpDivid;    
-        //document.body.append(helpDiv);
+		document.body.prepend(settingsDiv);
 		document.body.prepend(helpDiv);
     }
 }
+
+PrintHelpMessage("Привет РАБОТЯГА<div>СТАРТ");
+
+loadbtn = document.getElementById("loadbtn"); //загрузка DB из файла и обновление 
+savebtn = document.getElementById("savebtn"); //сохранение DB в файл
 
 function PrintHelpMessage(html){
 	if (document.getElementById(helpDivid)==null) InitialHelpDiv();
@@ -764,8 +772,7 @@ function ClickScan(){//Сканирование страницы и выявле
 	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("DElement"); console.log(DElement);};
 	var tmpstr3;
 	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
-	var tmpstr4 = "<div> <button id=\"loadbtn\">load DB</button> <button id=\"savebtn\">save DB</button>";
-	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?"+ tmpstr4 + tmpstr3);
+	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?" + tmpstr3);
 }
 
 
@@ -965,7 +972,7 @@ function AnswersRefrash(seq,vop){
 	} 
 }
 
-var loadbtn = document.getElementById("loadbtn"); //загрузка DB из файла и обновление 
+
 loadbtn.addEventListener("click",async () =>{
   var [fileHandle] = await window.showOpenFilePicker()
   var file = await fileHandle.getFile()
@@ -974,19 +981,28 @@ loadbtn.addEventListener("click",async () =>{
   DB = JSON.parse(fileContent);
   console.log("ЗАГРУЗКА БАЗЫ ДАННЫХ С ДИСКА ВЫПОЛНЕНО");
   console.log(DB);
-	TODO: сделать обновление базы данных в хранилище на основании текущей загруженной версии базы данных
+  if (DB == null) return;
+  if (DB.length<1) return;
+  chrome.storage.local.set({ key: DB }).then(() => { //сделать обновление базы данных в хранилище на основании текущей загруженной версии базы данных
+	  console.log("ОБНОВЛЕНИЕ ЛОКАЛЬНОГО ХРАНИЛИЩА ВЫПОЛНЕНО");
+  }); 
 });
 
 
-var savebtn = document.getElementById("savebtn"); //сохранение DB в файл
 savebtn.addEventListener("click",async () =>{
-	TODO: загрузить базу из хранилища
-  var fileData = await JSON.stringify(DB,null,"\t");
-  var fileHandle = await window.showSaveFilePicker()
-  var writableStream = await fileHandle.createWritable()
-  await writableStream.write(fileData)
-  await writableStream.close()
-  console.log("СОХРАНЕНИЕ ТЕКУЩЕЙ БАЗЫ ДАННЫХ НА ДИСК ВЫПОЛНЕНО");
+	//загрузить базу из хранилища
+	await chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
+		if (result.key == null) return;
+		if (!Array.isArray(result.key)) return;
+		DB = result.key;
+		console.log("ЗАГРУЗКА ЛОКАЛЬНОГО ХРАНИЛИЩА ВЫПОЛНЕНА");
+	});
+	var fileData = await JSON.stringify(DB,null,"\t");
+	var fileHandle = await window.showSaveFilePicker()
+	var writableStream = await fileHandle.createWritable()
+	await writableStream.write(fileData)
+	await writableStream.close()
+	console.log("СОХРАНЕНИЕ ТЕКУЩЕЙ БАЗЫ ДАННЫХ НА ДИСК ВЫПОЛНЕНО");
 });
 
 
