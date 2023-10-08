@@ -764,7 +764,8 @@ function ClickScan(){//Сканирование страницы и выявле
 	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("DElement"); console.log(DElement);};
 	var tmpstr3;
 	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
-	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?" + tmpstr3);
+	var tmpstr4 = "<div> <button id=\"loadbtn\">load DB</button> <button id=\"savebtn\">save DB</button>";
+	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?"+ tmpstr4 + tmpstr3);
 }
 
 
@@ -964,6 +965,29 @@ function AnswersRefrash(seq,vop){
 	} 
 }
 
+var loadbtn = document.getElementById("loadbtn"); //загрузка DB из файла и обновление 
+loadbtn.addEventListener("click",async () =>{
+  var [fileHandle] = await window.showOpenFilePicker()
+  var file = await fileHandle.getFile()
+  var fileContent = await file.text()
+  //console.log(fileContent)
+  DB = JSON.parse(fileContent);
+  console.log("ЗАГРУЗКА БАЗЫ ДАННЫХ С ДИСКА ВЫПОЛНЕНО");
+  console.log(DB);
+	TODO: сделать обновление базы данных в хранилище на основании текущей загруженной версии базы данных
+});
+
+
+var savebtn = document.getElementById("savebtn"); //сохранение DB в файл
+savebtn.addEventListener("click",async () =>{
+	TODO: загрузить базу из хранилища
+  var fileData = await JSON.stringify(DB,null,"\t");
+  var fileHandle = await window.showSaveFilePicker()
+  var writableStream = await fileHandle.createWritable()
+  await writableStream.write(fileData)
+  await writableStream.close()
+  console.log("СОХРАНЕНИЕ ТЕКУЩЕЙ БАЗЫ ДАННЫХ НА ДИСК ВЫПОЛНЕНО");
+});
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
