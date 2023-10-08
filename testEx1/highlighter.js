@@ -722,6 +722,7 @@ var CurrentQA;
 var AElement;
 var BElement;
 var CElement;
+var DElement;
 var Input;
 var InputFind=false;
 const debug = true;
@@ -747,7 +748,7 @@ function InitialHelpDiv(){
 function PrintHelpMessage(html){
 	if (document.getElementById(helpDivid)==null) InitialHelpDiv();
     if (document.getElementById(helpDivid)!=null) {
-        helpDiv.innerHTML = html; 
+		if (helpDiv!=null) {helpDiv.innerHTML = html;}else{console.log("helpDiv!=null, отладка?");};
     }
 	//или ТАК
 	//document.getElementsByClassName("ant-typography-secondary")[0].innerHTML=html;
@@ -759,8 +760,11 @@ function ClickScan(){//Сканирование страницы и выявле
 	AElement = document.getElementsByClassName('ant-typography'); //массив ВОПРОС, ОТВ1, ОТВ2
 	BElement = document.getElementsByClassName('ant-card-body');
 	CElement = document.getElementsByClassName('ant-space-item');
-	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("CElement"); console.log(CElement);};
-	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?");
+	DElement = document.getElementsByClassName('ant-typography w-100');
+	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("DElement"); console.log(DElement);};
+	var tmpstr3;
+	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
+	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?" + tmpstr3);
 }
 
 
@@ -905,6 +909,7 @@ function PPWindowWithInputArea(){//Детектор Окна с строчкой
 }
 
 function PPWindowWithButAnswer(){//Детектор Окна одним или несколькими правильным ответом
+	var tempElement;
 	if (AElement.length<5) return false;
 	if (BElement.length<2) return false;
 	if (InputFind) return false;
@@ -915,20 +920,21 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 		//tmpindxs.length=0; при сохранении чистить
 		//tmpindxs.splice(0,tmpindxs.length);
 	}*/
+	if (DElement.length>1) {tempElement = DElement;} else {tempElement = BElement;};
 	CurrentQA.Question = AElement[1].innerText; //добавление вопроса
-	tmpslc = DetectorSelectedQ(BElement);
+	tmpslc = DetectorSelectedQ(tempElement);
 	//console.log(tmpslc);
 	this.tmpindxs = refrash(tmpslc,this.tmpindxs );  //позиции выбраных вопросов [0,1,0,0]
 	//console.log("tmpindxs:")
 	//console.log(this.tmpindxs);
 	tmpseq = sequence(this.tmpindxs);
 	//console.log(tmpseq);
-	AnswersRefrash(tmpseq,BElement);
+	AnswersRefrash(tmpseq,tempElement);
 	if (debug) console.log(CurrentQA);
 	var tempB = [];  //Тут надо генерировать хеш для последующего поиска по базе
-	for (let i = 0; i < BElement.length; i++) {
-		//console.log(BElement[i].innerText);
-		tempB[i] = BElement[i].innerText;
+	for (let i = 0; i < tempElement.length; i++) {
+		//console.log(tempElement[i].innerText);
+		tempB[i] = tempElement[i].innerText;
 	}
 	CurrentQA.CalculateHesh(tempB);
 	LoadFindAndPrintAnswers();
