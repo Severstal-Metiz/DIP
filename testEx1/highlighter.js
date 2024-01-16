@@ -726,7 +726,7 @@ var DElement;
 var Input;
 var InputFind=false;
 const debug = true;
-const timeout = 800;
+const timeout = 800; //800  - работа   0 - отладка
 var DB = [];
 CurrentQA = new ClassQA("");
 
@@ -744,11 +744,12 @@ function InitialHelpDiv(){
         helpDiv = document.createElement('div');
         helpDiv.id=helpDivid;    
 		//document.body.prepend(settingsDiv);
-		document.body.prepend(helpDiv);
+		//document.body.prepend(helpDiv);
+    document.body.append(helpDiv);
     }
 }
 
-PrintHelpMessage("Привет РАБОТЯГА<div>СТАРТ");
+PrintHelpMessage('<div style="color: brown; font-size: medium;">Привет РАБОТЯГА</div><div style="color: yellowgreen;">РАСШИРЕНИЕ ХАКЕР ЗАПУЩЕНО</div>');
 
 loadbtn = document.getElementById("loadbtn"); //загрузка DB из файла и обновление 
 savebtn = document.getElementById("savebtn"); //сохранение DB в файл
@@ -758,6 +759,7 @@ function PrintHelpMessage(html){
     if (document.getElementById(helpDivid)!=null) {
 		if (helpDiv!=null) {helpDiv.innerHTML = html;}else{console.log("helpDiv!=null, отладка?");};
     }
+
 	//или ТАК
 	//document.getElementsByClassName("ant-typography-secondary")[0].innerHTML=html;
 }
@@ -772,7 +774,7 @@ function ClickScan(){//Сканирование страницы и выявле
 	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("DElement"); console.log(DElement);};
 	var tmpstr3;
 	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
-	PrintHelpMessage("Привет РАБОТЯГА<div>Как жизнь?" + tmpstr3);
+	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет РАБОТЯГА</div><div style="color: blue;">'+ Anekdot() +'</div>' + tmpstr3);
 }
 
 
@@ -922,15 +924,9 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 	if (BElement.length<2) return false;
 	if (InputFind) return false;
 	if (debug) console.log(">>> PPWindowWithButAnswer find");
-	//если вопрос ещё не занесен в обьект вопроса то инициализация
-	/*if (CurrentQA.Amount == 0){
-		CurrentQA.Question = AElement[1].innerText; //создание обьекта вопрос и добавление вопроса
-		//tmpindxs.length=0; при сохранении чистить
-		//tmpindxs.splice(0,tmpindxs.length);
-	}*/
 	if (DElement.length>1) {tempElement = DElement;} else {tempElement = BElement;};
 	CurrentQA.Question = AElement[1].innerText; //добавление вопроса
-	tmpslc = DetectorSelectedQ(tempElement);
+  tmpslc = DetectorSelectedQ(tempElement);
 	//console.log(tmpslc);
 	this.tmpindxs = refrash(tmpslc,this.tmpindxs );  //позиции выбраных вопросов [0,1,0,0]
 	//console.log("tmpindxs:")
@@ -941,14 +937,13 @@ function PPWindowWithButAnswer(){//Детектор Окна одним или �
 	if (debug) console.log(CurrentQA);
 	var tempB = [];  //Тут надо генерировать хеш для последующего поиска по базе
 	for (let i = 0; i < tempElement.length; i++) {
-		//console.log(tempElement[i].innerText);
-		tempB[i] = tempElement[i].innerText;
+    tempElement[i]=ReplaceTextInHtml(tempElement[i],CurrentQA,i)
+		tempB[i] = RazdetVopros(tempElement[i].innerText);
 	}
 	CurrentQA.CalculateHesh(tempB);
 	LoadFindAndPrintAnswers();
 	return true;
 }
-
 //детектор выбраных вопросов [0,1,0,0] выбран 2 вопрос; [1,1,0,0] выбран 1 и 2 вопрос.
 //принимает BElement
 function DetectorSelectedQ(vop){
@@ -968,11 +963,11 @@ function DetectorSelectedQ(vop){
 function AnswersRefrash(seq,vop){
 	CurrentQA.ClearAnswers();
 	for (var i=0;i < seq.length;i++){ //ответы
-		this.CurrentQA.AddAnswer(vop[seq[i]].innerText);
+		this.CurrentQA.AddAnswer(RazdetVopros(vop[seq[i]].innerText));
 	} 
 }
 
-
+/*
 loadbtn.addEventListener("click",async () =>{
   var [fileHandle] = await window.showOpenFilePicker()
   var file = await fileHandle.getFile()
@@ -1004,7 +999,7 @@ savebtn.addEventListener("click",async () =>{
 	await writableStream.close()
 	console.log("СОХРАНЕНИЕ ТЕКУЩЕЙ БАЗЫ ДАННЫХ НА ДИСК ВЫПОЛНЕНО");
 });
-
+*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1035,12 +1030,13 @@ function LoadFindAndPrintAnswers(){  //асинхронная ёбань с хр
 		if (debug) console.log("LoadFindAndPrintAnswers()");
 		index = SearchInDB();
 		if (index >= 0){ //вопрос найден в БД
-			var msg = "-------->>>> ВОПРОС НАЙДЕН. <<<<--------<div>";
+			var msg = '<div style="color: blueviolet; font-size: larger;"+++++++++++ВОПРОС НАЙДЕН++++++++++</div>';
 			console.log("-------->>>> ВОПРОС НАЙДЕН. <<<<--------" + index + " запись в БД");
 			console.log("ОТВЕТЫ:");
 			for (let i = 0; i < DB[index].answers.length; i++) {
 				console.log( (i+1) + ") " + DB[index].answers[i]);
-				msg=msg + "<div>"+ (i+1) + ") " + DB[index].answers[i];
+				msg=msg + "<div>" + ObernutVopros(DB[index].answers[i],i);
+        //Hilight(DB[index].answers[i],ObernutVopros(DB[index].answers[i],i))
 			}
 			PrintHelpMessage(msg);
 		}
@@ -1064,8 +1060,6 @@ function SearchInDB(){//поиск существующего вопроса в 
 	//console.log(DB.length);
 	//if (DB.length == 0) return -1;
 	for (var i=0;i<DB.length;i++){
-		//console.log(DB[i].question);
-		//console.log(CurrentQA.question);
 		if (DB[i].question == CurrentQA.question){
 			if (DB[i].hesh == CurrentQA.hesh) return i; //возвращаем индекс найденой записи. дополнить поиск по хешу. если хеш совпал то заебись, пустой то значит тоже заебись
 			if (DB[i].hesh == "") return i; //возвращаем индекс найденой записи
@@ -1099,71 +1093,6 @@ function RefrashDB() {//обновление Базы (в памяти)
 	if (debug) console.log(DB);
 }
 
-
-function SaveDBOld(select){
-	chrome.storage.local.set({ key: select }).then(() => {
-	console.log("Value is set1");
-	});
-	chrome.storage.local.set({ goi: "Гои спасают мир!" }).then(() => {
-	console.log("Value is set2");
-	});
-}
-
-function LoadDBOld(){
-	chrome.storage.local.get(["key","goi"]).then((result) => {
-	console.log("Value currently is 1: " + result.key + " 2: " + result.goi);
-	});
-}
-
-function GetVoprosOld(){
-	console.log(">>> GetVopros")
-	vop = document.getElementsByClassName('ant-typography'); //массив ВОПРОС, ОТВ1, ОТВ2
-	otv = document.getElementsByClassName('ant-card-body');
-	console.log(vop.length);
-	console.log(vop);
-	console.log(otv.length);
-	console.log(otv);
-	if (vop.length < 2) return;
-	if (otv.length == 0) return;
-	console.log(vop[1].innerText); //ВОПРОС
-	for (var i=0;i < otv.length;i++){ //ответы
-		console.log(otv[i].innerText + "   selected: " + otv[i].parentElement.className.indexOf("answer-selected"));
-		otv[i].innerText = "[" + i + "]" + otv[i].innerText; //добавляем цифры к ответам
-	}
-}
-
-function GetYesNoOld(){
-	console.log(">>> GetYesNo")
-	vop = document.getElementsByClassName('ant-typography');
-	otv = document.getElementsByClassName('ant-card-body');
-	console.log(vop.length);
-	console.log(vop);
-	console.log(otv.length);
-	console.log(otv);
-	if (vop.length != 3) return;
-	if (otv.length != 0) return;
-	//console.log(vop[0].innerText);
-	if (vop[0].innerText == "Правильный ответ") {
-		console.log("ОТВЕТ ВЕРНЫЙ")
-	}
-	if (vop[0].innerText == "Неправильный ответ") {
-		console.log("ОТВЕТ НЕВЕРНЫЙ!!!")
-	}
-}
-
-
-function GetVoprosOld2(){
-	//vop = getElementsByClassName(document.body,'mb-2'); //массив ВОПРОС, ОТВ1, ОТВ2
-	vop = document.getElementsByClassName('ant-card-body');
-	console.log(vop.length);
-	if (vop.length == 0) return;
-	console.log(vop[0].innerText); //ВОПРОС
-	for (var i=1;i < vop.length;i++){ //ответы
-		console.log(vop[i].innerText);
-		console.log(vop[i].getAttribute("data-answer-id")); //data-answer-id АТРИБУТ
-		vop[i].innerText = "[" + i + "]" + vop[i].innerText; //добавляем цифры к ответам
-	}
-}
 
 /*Следующие ф-и работают в паре 
 //сначала
@@ -1221,3 +1150,121 @@ function sequence(srss){//указывает порядковые ИНДЕКСЫ
     return output;
 }
 //////////////////////////////////////////
+
+
+var patternBefore='{{'
+var patternAfter='}}'
+
+
+function BeforeP(number){
+	return patternBefore + String("   " + number).slice(-3) + " "
+}
+
+function ObernutVopros(vop,number){
+  if (vop.length==0) return ''
+  if (vop.search(patternBefore) != -1) return vop
+	return BeforeP(number+1) + vop + patternAfter
+}
+
+function RazdetVopros(vop){
+  //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1=======> ' + vop + ':'+patternBefore)
+  if (vop.length==0) return ''
+  if (vop.search(patternBefore) == -1) return vop
+	var lenBefore = BeforeP(0).length
+	var lenAfter = patternAfter.length
+  var ret = vop.slice(lenBefore-1,vop.length-lenAfter)
+  //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2=======> ' + vop + ':'+ret)
+	return ret
+}
+
+function RazdetVoproses(voprosesArr){
+  for (let i = 0; i < voprosesArr.length; i++) {
+    voprosesArr[i] = RazdetVopros(voprosesArr[i])
+  }
+  return voprosesArr
+}
+
+function Hilight(razdetiy,odetiy){
+  if (document.body.innerHTML.search(odetiy)!= -1) return
+  if (document.body.innerHTML.search(razdetiy)!= -1){
+    document.body.innerHTML = document.body.innerHTML.replace(razdetiy, odetiy);  
+  }
+  
+}
+
+function ReplaceTextInHtml(html,q,index){
+  chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
+		if (result.key == null) return;
+		if (!Array.isArray(result.key)) return;
+		if (CurrentQA.question == "") return;
+		DB = result.key;
+  	i = SearchInDB();
+    
+	  if (i == -1 ) return html
+    console.log('Найдено  i='+i)
+    console.log('Найдено  am='+ DB[i].question)
+    console.log('Найдено  am='+ DB[i].answers.length)
+    console.log(DB[i].answers[0])
+    for (var j=0;j< DB[i].amount;j++){
+      console.log(html.innerText+'     '+DB[i].answers[j]+ '   ???    ')
+     if (html.innerText == DB[i].answers[j]){
+        console.log(html.innerText+'     '+DB[i].answers[j]+'  ++++  ')
+        html.innerHTML = html.innerHTML.replace(html.innerText, ObernutVopros(html.innerText,j));
+        return html
+     } else {
+        console.log(html.innerText+'     '+DB[i].answers[j]+ '   ---    ')
+     }
+    }
+  return html
+});
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function Anekdot(){
+  names1=['Михалыч','Блохин','Талалаев','Диман','Рома','Иван Сергеевич']
+  name1 = names1[getRandomInt(0,names1.length-1)]
+  names2=['Михалыча','Блохина','Талалаева','Димана','Романа','Ивана Сергеевича']
+  name2 = names2[getRandomInt(0,names2.length-1)]
+  angStr=[' В цеху.  '  + 
+  '  — У нас правила безопасности написаны кровью!  '  + 
+  '  — Я заметил. А нахрена вы это сделали?  '  + 
+  '  — Да у нас тут '+name2+' на прошлой неделе на вал намотало. Мы и подумали, чего добру пропадать…  ',
+  '  На производстве информируют о несчастных случаях.  '  + 
+  '  Хоть бы раз о счастливых проинформировали.  ',
+  '  Помни, успешные люди встают до рассвета, или после полудня.  '  + 
+  '  Все зависит от смены на заводе.  ',
+  '  Поступив на завод сразу после техникума, '+name1+' был неопытный и совсем зеленый.  '  + 
+  '  Но вот прошло полгода и теперь он каждый день синий.  ',
+  '  Тульский завод медных тазов накрылся готовой продукцией.',
+  '  В России сначала завод строится в соответствии с проектными чертежами,'+
+  '  а потом чертежи редактируются в соответствии с построенным заводом.',
+  '  Со словами: "Я выбираю жить в кайф", работник завода '+name1+' порезал в Доширак сосисочку.',
+  '  Ликероводочный завод «Кристалл» предупреждает: Курение, курение и только курение опасно для вашего здоровья!',
+  '  Сыктывкарский завод чугунного литья приступил к выпуску детских игрушек:  '  + 
+  '  — С этой игрушкой вы всегда найдёте ребёнка там, где его оставили.  ',
+  'В результате взрыва на ликероводочном заводе все живое в радиусе 3 км требует продолжения банкета.',
+  '   Новость:  '  + 
+  '   Завод "Серп и Молот" решил объединить активы с подмосковной птицефабрикой.  '  + 
+  '  Новое производственное объединение решено назвать "Серп и Яйца".  ',
+  'Пороховой завод сообщает о своей ликвидации',
+  'Не суйся в воду возле хим. завода.',
+  '   Приказ по заводу:  '  + 
+  '  "Лишить работника цеха '+name2+' премии в размере 40% за низкий уровень культуры при разгрузке вагонов с углем".  ',
+  '— После взрыва на цементном заводе прошел дождь, и жизнь на предприятии окончательно замерла…',
+  'Донецкий паяльниковый завод получил крупный заказ на изготовление детекторов лжи.',
+  'После обеда в результате алкогольной интоксикации в тяжелом состоянии был доставлен на завод слесарь '+name1+','+
+  'где он, не приходя в сознание… приступил к работе.',
+  'Из новостей. Вчера в торжественной обстановке на строительстве нового ликеро-водочного завода' +
+  'мэр города '+name1+' заложил первую рюмку.'
+  ]
+ 
+  anek = angStr[getRandomInt(0,angStr.length-1)]
+  return anek
+}
+
+

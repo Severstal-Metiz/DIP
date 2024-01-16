@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
-	"version": "0.1",
-	"name": "Вредсмертный",
-	"description": "Твой не заменимый помошник sqp.mobileapp.severstal.com",
+	"version": "2.0",
+	"name": "Вредсмертный экзаменатор",
+	"description": "Твой не заменимый помошник sqp.mobileapp.severstal.com RonixERR production in 2023-2024",
 	
 	"action": {
 		"default_icon": {
