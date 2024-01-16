@@ -14,7 +14,7 @@
 		"32" : "32x32.png"
 	},
 	
-	"permissions": ["activeTab", "scripting", "storage"],
+	"permissions": ["activeTab", "scripting", "storage" ],
 	
 	"content_scripts": [
 		{
