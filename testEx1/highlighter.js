@@ -743,7 +743,7 @@ function InitialHelpDiv(){
 		settingsDiv.innerHTML = "<div> <button id=\"loadbtn\">load DB</button> <button id=\"savebtn\">save DB</button>";
         helpDiv = document.createElement('div');
         helpDiv.id=helpDivid;    
-		document.body.prepend(settingsDiv);
+		//document.body.prepend(settingsDiv);
 		document.body.prepend(helpDiv);
     }
 }
