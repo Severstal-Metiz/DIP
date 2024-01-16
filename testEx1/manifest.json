@@ -11,7 +11,8 @@
 		"default_popup" : "popup.html"
 	},
 	"icons": {
-		"32" : "32x32.png"
+		"32" : "32x32.png",
+		"128" : "128x128.png"
 	},
 	
 	"permissions": ["activeTab", "scripting", "storage" ],
