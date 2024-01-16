@@ -7,7 +7,8 @@
 	"action": {
 		"default_icon": {
 		  "32" : "32x32.png"
-		}
+		},
+		"default_popup" : "popup.html"
 	},
 	"icons": {
 		"32" : "32x32.png"
@@ -19,7 +20,7 @@
 		{
 			"matches": [ "https://sqp.mobileapp.severstal.com/","file:///*" ],
 			"css": ["highlighter.css"],
-			"js": [ "highlighter.js" ],
+			"js": [ "highlighter.js", "popup.js" ],
 			"run_at": "document_end"
 		}
 	],
