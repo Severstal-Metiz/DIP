@@ -17,7 +17,7 @@
 	
 	"content_scripts": [
 		{
-			"matches": [ "*://*/*","file:///*" ],
+			"matches": [ "https://sqp.mobileapp.severstal.com/","file:///*" ],
 			"css": ["highlighter.css"],
 			"js": [ "highlighter.js" ],
 			"run_at": "document_end"
