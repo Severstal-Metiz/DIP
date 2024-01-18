@@ -807,11 +807,17 @@ function ClickScan(){//Сканирование страницы и выявле
 	var tmpstr3;
 	var name = WhosOurLuckyGuy();
 	
+  select = ''
 	if (name == "undefined"){
 		name = "РАБОТЯГА"
+    select =  '<table><tr><th>Пользователь</th><th>таб. номер</th></tr>' 
+    for (let [key, value] of Object.entries(blueCollars)) {
+      select += '<tr><td>'+value+'</td><td>'+key+'</td></tr>'
+    }
+    select += '</table>'
 	}
 	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
-	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет '+ name + '</div><div style="color: blue;">'+ Anekdot(name) +'</div>' + tmpstr3);
+	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет '+ name + '</div><div style="color: blue;">'+ Anekdot(name) +'</div>' + select + tmpstr3);
 }
 
 
