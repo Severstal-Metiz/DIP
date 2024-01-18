@@ -737,37 +737,12 @@ var helpDivid = "helpDividRomixERR";
 var settingsDiv;
 var loadbtn;
 var savebtn;
-
-const blueCollars = {
-	'22000110' : 'Антон',
-	'20023762' : 'Роман Великий Комбинатор',
-	'20011888' : 'Морда(ш)сов',
-	'20008670' : 'Талалаев',
-	'20012912' : 'Викулов',
-	'20011761' : 'ДИМАААН!11',
-	'22000500' : 'Дмитриев (неСергей) Игорь',
-	'22001043' : 'Свитачев К.В',
-	'20002056' : 'Виктор, без которого производство встанет',
-	'20019131' : 'RomixERR the great',
-	'20008675' : 'Юрь Палыч',
-	'20021065' : 'Рушан',
-	'20021026' : 'Maх',
-	'20015519' : 'Блохеин',
-	'22000239' : 'Дмитриев Сергей',
-}
-
-//blueCollarsDiv = document.createElement('div');
-//blueCollarsDiv.innerHTML = "<select name=\"language\" id=\"language\"><option value=\"javascript\">JavaScript</option><option value=\"python\">Python</option><option value=\"c++\">C++</option><option value=\"java\">Java</option></select>";
-//document.body.prepend(blueCollarsDiv);
-
-
-
 function InitialHelpDiv(){
     if (document.getElementById(helpDivid) == null){
 		settingsDiv = document.createElement('div');
 		settingsDiv.innerHTML = "<div> <button id=\"loadbtn\">load DB</button> <button id=\"savebtn\">save DB</button>";
         helpDiv = document.createElement('div');
-        helpDiv.id=helpDivid;
+        helpDiv.id=helpDivid;    
 		//document.body.prepend(settingsDiv);
 		//document.body.prepend(helpDiv);
     document.body.append(helpDiv);
@@ -789,13 +764,6 @@ function PrintHelpMessage(html){
 	//document.getElementsByClassName("ant-typography-secondary")[0].innerHTML=html;
 }
 
-function WhosOurLuckyGuy () {
-	if(AElement[0].innerText == "Предсменный Экзаменатор"){
-	    var input = document.querySelector('input');
-	    name=blueCollars[input.value];
-    }
-    return name;
-}
 
 function ClickScan(){//Сканирование страницы и выявление нужных обьектов
 	if (debug) console.log(">>> ClickScan >>>")
@@ -805,13 +773,8 @@ function ClickScan(){//Сканирование страницы и выявле
 	DElement = document.getElementsByClassName('ant-typography w-100');
 	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("DElement"); console.log(DElement);};
 	var tmpstr3;
-	var name = WhosOurLuckyGuy();
-	
-	if (name == "undefined"){
-		name = "РАБОТЯГА"
-	}
 	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
-	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет '+ name + '</div><div style="color: blue;">'+ Anekdot(name) +'</div>' + tmpstr3);
+	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет РАБОТЯГА</div><div style="color: blue;">'+ Anekdot() +'</div>' + tmpstr3);
 }
 
 
@@ -1262,13 +1225,11 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function Anekdot(name){
-  //names1=['Михалыч','Блохин','Талалаев','Диман','Рома','Иван Сергеевич']
-  //name1 = names1[getRandomInt(0,names1.length-1)]
+function Anekdot(){
+  names1=['Михалыч','Блохин','Талалаев','Диман','Рома','Иван Сергеевич']
+  name1 = names1[getRandomInt(0,names1.length-1)]
   names2=['Михалыча','Блохина','Талалаева','Димана','Романа','Ивана Сергеевича']
   name2 = names2[getRandomInt(0,names2.length-1)]
-  name1 = name;
-  
   angStr=[' В цеху.  '  + 
   '  — У нас правила безопасности написаны кровью!  '  + 
   '  — Я заметил. А нахрена вы это сделали?  '  + 
