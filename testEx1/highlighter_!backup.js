@@ -757,6 +757,12 @@ const blueCollars = {
 	'20016181' : 'Кабан',
 }
 
+//blueCollarsDiv = document.createElement('div');
+//blueCollarsDiv.innerHTML = "<select name=\"language\" id=\"language\"><option value=\"javascript\">JavaScript</option><option value=\"python\">Python</option><option value=\"c++\">C++</option><option value=\"java\">Java</option></select>";
+//document.body.prepend(blueCollarsDiv);
+
+
+
 function InitialHelpDiv(){
     if (document.getElementById(helpDivid) == null){
 		settingsDiv = document.createElement('div');
@@ -766,7 +772,6 @@ function InitialHelpDiv(){
 		//document.body.prepend(settingsDiv);
 		//document.body.prepend(helpDiv);
     document.body.append(helpDiv);
-    
     }
 }
 
@@ -785,9 +790,7 @@ function PrintHelpMessage(html){
 	//document.getElementsByClassName("ant-typography-secondary")[0].innerHTML=html;
 }
 
-drawPNumberTable();
-
-function whosOurLuckyGuy () { //Кто у на тут такой, а? Имя!
+function WhosOurLuckyGuy () {
 	if(AElement[0].innerText == "Предсменный Экзаменатор"){
 	    var input = document.querySelector('input');
 	    name=blueCollars[input.value];
@@ -795,36 +798,7 @@ function whosOurLuckyGuy () { //Кто у на тут такой, а? Имя!
     return name;
 }
 
-
-function pasteLogin(number){ // Долже вставлять логин в форму. Не работает. Работает как диалог для Ctrl+C
-  number = number;
-  var input = document.body.querySelector('input');
-  input.value = number;
-  console.log(input.value);
-  window.prompt("Copy to clipboard: Ctrl+C, Enter", number);
-}
-
-function drawPNumberTable() { //Создает таблицу с табелями-кнопками, аппендит к основной странице. Добавляет лиссcанеры на кнопки 
-  select =  '<table><tr><th>Таб. номер: &nbsp; &nbsp; </th><th>Пользователь:</th></tr>' 
-  for (let [key, value] of Object.entries(blueCollars)) {
-    select += '<tr><td><button id = "'+key+'" class = "nlink" >'+key+'</button></td><td>'+value+'</td></tr>'
-  }
-  select += '</table>'
-  pNumTable = document.createElement('div');
-	pNumTable.innerHTML = select;
-  document.body.append(pNumTable);
-  var anchors = document.getElementsByClassName("nlink");
-  Array.from(anchors).forEach(function (anchor) {
-    var obj = anchor.id;
-    anchor.addEventListener("click", function (obj) {
-        console.log("Clicked!"+anchor.innerHTML);
-        pasteLogin(anchor.innerHTML)
-        return false;
-    });
-  });
-} 
-
-function ClickScan(){//Сканирование страницы и выявление нужных обьектов и не только
+function ClickScan(){//Сканирование страницы и выявление нужных обьектов
 	if (debug) console.log(">>> ClickScan >>>")
 	AElement = document.getElementsByClassName('ant-typography'); //массив ВОПРОС, ОТВ1, ОТВ2
 	BElement = document.getElementsByClassName('ant-card-body');
@@ -832,19 +806,19 @@ function ClickScan(){//Сканирование страницы и выявле
 	DElement = document.getElementsByClassName('ant-typography w-100');
 	if (debug){console.log("AElement: "); console.log(AElement); console.log("BElement"); console.log(BElement); console.log("DElement"); console.log(DElement);};
 	var tmpstr3;
-	var name = whosOurLuckyGuy();
-  if (name == "undefined"){ name = "РАБОТЯГА";}
-  let notLogin = AElement[0].innerText != "Предсменный Экзаменатор";
-  let isAppend = pNumTable.isConnected; 
-  if(isAppend && notLogin){
-    pNumTable.remove();
-  }
-  if(!(isAppend || notLogin)){
-    document.body.append(pNumTable);
-  }
-  //if(AElement[0].innerText != "Предсменный Экзаменатор") {pNumTable.remove();}
+	var name = WhosOurLuckyGuy();
+	
+  select = ''
+	if (name == "undefined"){
+		name = "РАБОТЯГА"
+    select =  '<table><tr><th>Пользователь</th><th>таб. номер</th></tr>' 
+    for (let [key, value] of Object.entries(blueCollars)) {
+      select += '<tr><td>'+value+'</td><td>'+key+'</td></tr>'
+    }
+    select += '</table>'
+	}
 	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
-	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет '+ name + '</div><div style="color: blue;">'+ Anekdot(name) +'</div>' + tmpstr3);
+	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет '+ name + '</div><div style="color: blue;">'+ Anekdot(name) +'</div>' + select + tmpstr3);
 }
 
 
