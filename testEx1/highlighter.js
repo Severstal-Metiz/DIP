@@ -800,7 +800,7 @@ function pasteLogin(number){ // Долже вставлять логин в фо
   number = number;
   var input = document.body.querySelector('input');
   input.value = number;
-  console.log(input.value);
+  if (debug) console.log(input.value);
   window.prompt("Copy to clipboard: Ctrl+C, Enter", number);
 }
 
@@ -817,7 +817,7 @@ function drawPNumberTable() { //Создает таблицу с табелям�
   Array.from(anchors).forEach(function (anchor) {
     var obj = anchor.id;
     anchor.addEventListener("click", function (obj) {
-        console.log("Clicked!"+anchor.innerHTML);
+      if (debug) console.log("Clicked!"+anchor.innerHTML);
         pasteLogin(anchor.innerHTML)
         return false;
     });
@@ -903,16 +903,16 @@ function GetInput(){//ЗАБИРАЕТ ЗНАЧЕНИЯ ИЗ ПОЛЯ ВВОДА
 }
 
 function ParserPip(){//последовательность парсера
-	if (PPWindowWithInputArea()) return;
-	if (PPWindowWithButAnswer()) return;
-	if (PPWindowWithRight()) return;
-	if (PPWindowWithNotTrue()) return;
+  if (PPWindowWithRight()==true) return;
+  if (PPWindowWithInputArea()==true) return;
+	if (PPWindowWithButAnswer()==true) return;
+	//if (PPWindowWithNotTrue()==true) return;
 }
 
 
 function PPWindowWithNotTrue(){ //Детектор окна с подтверждением неправильного ответа
 	TODO: //работают не корректно. Пока отключен
-	return true;
+	return false;
 	//if (AElement.length!=3) return false;
 	if (BElement.length!=0) return false;
 	if(AElement[0].innerText != "Неправильный ответ") return false;
@@ -948,6 +948,7 @@ function PPWindowWithNotTrue(){ //Детектор окна с подтверж�
 
 
 function PPWindowWithRight(){ //Детектор окна с подтверждением правильного ответа
+  if (debug) console.log("PPWindowWithRight ENTER")
 	//if (AElement.length!=3) return false;
 	if (BElement.length!=0) return false;
 	if(AElement[0].innerText != "Правильный ответ") return false;
@@ -963,6 +964,7 @@ function PPWindowWithRight(){ //Детектор окна с подтвержд�
 	// <<<-
 	if (CurrentQA.Amount == 0) return false;
 	LoadRefrashAndSaveDB();
+  if (debug) console.log("PPWindowWithRight OUT")
 	return true;
 }
 
@@ -989,37 +991,67 @@ function PPWindowWithInputArea(){//Детектор Окна с строчкой
 }
 
 function PPWindowWithButAnswer(){//Детектор Окна одним или несколькими правильным ответом
-	var tempElement;
-	if (AElement.length<5) return false;
-	if (BElement.length<2) return false;
-	if (InputFind) return false;
-	if (debug) console.log(">>> PPWindowWithButAnswer find");
-	if (DElement.length>1) {tempElement = DElement;} else {tempElement = BElement;};
-	CurrentQA.Question = AElement[1].innerText; //добавление вопроса
-  tmpslc = DetectorSelectedQ(tempElement);
-	//console.log(tmpslc);
-	this.tmpindxs = refrash(tmpslc,this.tmpindxs );  //позиции выбраных вопросов [0,1,0,0]
-	//console.log("tmpindxs:")
-	//console.log(this.tmpindxs);
-	tmpseq = sequence(this.tmpindxs);
-	//console.log(tmpseq);
-	AnswersRefrash(tmpseq,tempElement);
-	if (debug) console.log(CurrentQA);
-	var tempB = [];  //Тут надо генерировать хеш для последующего поиска по базе
-	for (let i = 0; i < tempElement.length; i++) {
-    tempElement[i]=ReplaceTextInHtml(tempElement[i],CurrentQA,i)
-		tempB[i] = RazdetVopros(tempElement[i].innerText);
-	}
-	CurrentQA.CalculateHesh(tempB);
+  if (debug) console.log("PPWindowWithButAnswer ENTER")
+  chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
+		if (result.key == null) return false;
+		if (!Array.isArray(result.key)) return false;
+		DB = result.key;
+    var tempElement;
+    var tempB = [];  //Тут надо генерировать хеш для последующего поиска по базе
+    if (AElement.length<5) return false;
+    if (BElement.length<2) return false;
+    if (InputFind) return false;
+    if (debug) console.log(">>> PPWindowWithButAnswer find");
+    if (DElement.length>1) {tempElement = DElement;} else {tempElement = BElement;};
+    CurrentQA.Question = AElement[1].innerText; //добавление вопроса
+    tmpslc = DetectorSelectedQ(tempElement);
+    this.tmpindxs = refrash(tmpslc,this.tmpindxs );  //позиции выбраных вопросов [0,1,0,0]
+    tmpseq = sequence(this.tmpindxs);
+    AnswersRefrash(tmpseq,tempElement);
+    if (debug) console.log(CurrentQA);
+    for (let i = 0; i < tempElement.length; i++) {
+      tempB[i] = RazdetVopros(tempElement[i].innerText);
+    }
+    CurrentQA.CalculateHesh(tempB);
+    for (let i = 0; i < tempElement.length; i++) {
+      tempElement[i]=ReplaceTextInHtml(tempElement[i],CurrentQA,i)
+    }
+  });
 	LoadFindAndPrintAnswers();
+  if (debug) console.log("PPWindowWithButAnswer OUT")
 	return true;
 }
+
+function ReplaceTextInHtml(html,q,index){
+  	i = SearchInDB();
+	  if (i == -1 ) return html
+    for (var j=0;j< DB[i].amount;j++){
+     if (html.innerText == DB[i].answers[j]){
+        html.innerHTML = html.innerHTML.replace(html.innerText, ObernutVopros(html.innerText,j));
+        return html
+     } else {
+
+     }
+    }
+  return html
+}
+
+function SearchInDB(){//поиск существующего вопроса в базе данных (в памяти)
+	if (debug) console.log("SearchInDB()");
+	for (var i=0;i<DB.length;i++){
+		if (DB[i].question == CurrentQA.question){
+			if (DB[i].hesh == CurrentQA.hesh) return i; //возвращаем индекс найденой записи. дополнить поиск по хешу. если хеш совпал то заебись, пустой то значит тоже заебись
+			if (DB[i].hesh == "") return i; //возвращаем индекс найденой записи
+		} 
+	}
+	return -1;
+}
+
 //детектор выбраных вопросов [0,1,0,0] выбран 2 вопрос; [1,1,0,0] выбран 1 и 2 вопрос.
 //принимает BElement
 function DetectorSelectedQ(vop){
 	var ret = []; 
 	for (var i=0;i < vop.length;i++){ //ответы
-		//console.log(vop[i].offsetParent.className);
 		if (vop[i].offsetParent.className.indexOf("answer-selected") >= 0){
 			ret[i] = 1;
 		}else{ret[i] = 0;}
@@ -1083,16 +1115,25 @@ function Timeout(time){
 }
 */
 function Timeout(time){
-	console.log("TimeoutSTART");
+	if (debug) console.log("TimeoutSTART");
 	setTimeout(TOfunction,time);
 }
 function TOfunction(){
-	console.log("TimeoutEND");
+	if (debug) console.log("TimeoutEND");
 }
+function LoadDB(){
+  chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
+		if (result.key == null) return;
+		if (!Array.isArray(result.key)) return;
+		if (CurrentQA.question == "") return;
+		DB = result.key;
+  });
+}
+
 
 //РАДИ ЧЕГО МЫ ВСЕ ЗДЕСЬ собрались
 function LoadFindAndPrintAnswers(){  //асинхронная ёбань с хранилищем Находит вопрос в БД и печатает его для помощи
-	chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
+  chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
 		if (result.key == null) return;
 		if (!Array.isArray(result.key)) return;
 		if (CurrentQA.question == "") return;
@@ -1110,46 +1151,39 @@ function LoadFindAndPrintAnswers(){  //асинхронная ёбань с хр
 			}
 			PrintHelpMessage(msg);
 		}
-	});
+  });	
 }
 
 function LoadRefrashAndSaveDB(){ //асинхронная ёбань с хранилищем
+  if (debug) console.log("LoadRefrashAndSaveDB Enter")
 	chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
 		if (result.key == null) return;
 		if (!Array.isArray(result.key)) return;
 		DB = result.key;
-		if (debug) console.log("LoadDB()");
+		if (debug) console.log("LoadDB() in LoadRefrashAndSaveDB");
 		if (debug) console.log(DB);
 		RefrashDB();
 		SaveDB();
 	});
+  if (debug) console.log("LoadRefrashAndSaveDB OUT")
 }
 
-function SearchInDB(){//поиск существующего вопроса в базе данных (в памяти)
-	if (debug) console.log("SearchInDB()");
-	//console.log(DB.length);
-	//if (DB.length == 0) return -1;
-	for (var i=0;i<DB.length;i++){
-		if (DB[i].question == CurrentQA.question){
-			if (DB[i].hesh == CurrentQA.hesh) return i; //возвращаем индекс найденой записи. дополнить поиск по хешу. если хеш совпал то заебись, пустой то значит тоже заебись
-			if (DB[i].hesh == "") return i; //возвращаем индекс найденой записи
-		} 
-	}
-	return -1;
-}
+
 
 function SaveDB(){//сохранение DB (в хранилище)
+  if (debug) console.log("SaveDB() Enter");
 	if (DB.length == 0) return;
 	chrome.storage.local.set({ key: DB }).then(() => {
 		//очистка
 		tmpindxs.length=0;
 		//CurrentQA.ClearAnswers();
 	});
-		if (debug) console.log("SaveDB()");
-		if (debug) console.log(DB);
+  if (debug) console.log("SaveDB() Out");
+  if (debug) console.log(DB);
 }
 
 function RefrashDB() {//обновление Базы (в памяти)
+  console.log("RefrashDB() Enter");
 	if(CurrentQA.Amount == 0) return;
 	index = SearchInDB();
 	if (index >=0 ){ //если есть
@@ -1159,8 +1193,7 @@ function RefrashDB() {//обновление Базы (в памяти)
 		DB[DB.length] = CurrentQA;
 		if (debug) console.log("DB еще не имеет записи");
 	}
-	if (debug) console.log("RefrashDB()");
-	if (debug) console.log(DB);
+	if (debug) console.log("RefrashDB() Out");
 }
 
 
@@ -1237,13 +1270,11 @@ function ObernutVopros(vop,number){
 }
 
 function RazdetVopros(vop){
-  //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1=======> ' + vop + ':'+patternBefore)
   if (vop.length==0) return ''
   if (vop.search(patternBefore) == -1) return vop
 	var lenBefore = BeforeP(0).length
 	var lenAfter = patternAfter.length
   var ret = vop.slice(lenBefore-1,vop.length-lenAfter)
-  //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2=======> ' + vop + ':'+ret)
 	return ret
 }
 
@@ -1262,32 +1293,7 @@ function Hilight(razdetiy,odetiy){
   
 }
 
-function ReplaceTextInHtml(html,q,index){
-  chrome.storage.local.get(["key"]).then((result) => { //загрузка базы данных (из хранилища) 
-		if (result.key == null) return;
-		if (!Array.isArray(result.key)) return;
-		if (CurrentQA.question == "") return;
-		DB = result.key;
-  	i = SearchInDB();
-    
-	  if (i == -1 ) return html
-    console.log('Найдено  i='+i)
-    console.log('Найдено  am='+ DB[i].question)
-    console.log('Найдено  am='+ DB[i].answers.length)
-    console.log(DB[i].answers[0])
-    for (var j=0;j< DB[i].amount;j++){
-      console.log(html.innerText+'     '+DB[i].answers[j]+ '   ???    ')
-     if (html.innerText == DB[i].answers[j]){
-        console.log(html.innerText+'     '+DB[i].answers[j]+'  ++++  ')
-        html.innerHTML = html.innerHTML.replace(html.innerText, ObernutVopros(html.innerText,j));
-        return html
-     } else {
-        console.log(html.innerText+'     '+DB[i].answers[j]+ '   ---    ')
-     }
-    }
-  return html
-});
-}
+
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
