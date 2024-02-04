@@ -1265,7 +1265,10 @@ function BeforeP(number){
 
 function ObernutVopros(vop,number){
   if (vop.length==0) return ''
-  if (vop.search(patternBefore) != -1) return vop
+  if (vop.search(patternBefore) != -1) {
+    console.log("NOT-1");
+    return vop
+  }
 	return BeforeP(number+1) + vop + patternAfter
 }
 
