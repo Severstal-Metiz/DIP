@@ -740,7 +740,7 @@ var savebtn;
 
 const blueCollars = {
 	'22000110' : 'Антон программист',
-	'20023762' : 'Роман Великий Комбинатор',
+	'20023862' : 'Роман Великий Комбинатор',
 	'20011888' : 'Морда(ш)сов',
 	'20008670' : 'Талалаев',
 	'20012912' : 'Викулов',
@@ -842,7 +842,8 @@ function ClickScan(){//Сканирование страницы и выявле
   if(!(isAppend || notLogin)){
     document.body.append(pNumTable);
   }
-  //if(AElement[0].innerText != "Предсменный Экзаменатор") {pNumTable.remove();}
+  if(AElement[0].innerText == "Предсменный Экзаменатор") {CurrentQA.ClearAnswers();}
+
 	if (timeout==0) {tmpstr3 = " режим отладки!!! timeout==0, должно быть timeout>0"} else {tmpstr3=""};
 	PrintHelpMessage('<div style="color: brown; font-size: larger;">Привет '+ name + '</div><div style="color: blue;">'+ Anekdot(name) +'</div>' + tmpstr3);
 }
@@ -1027,7 +1028,9 @@ function ReplaceTextInHtml(html,q,index){
 	  if (i == -1 ) return html
     for (var j=0;j< DB[i].amount;j++){
      if (html.innerText == DB[i].answers[j]){
-        html.innerHTML = html.innerHTML.replace(html.innerText, ObernutVopros(html.innerText,j));
+        var replacement = ObernutVopros(html.innerText,j);
+        html.innerHTML = html.innerHTML.replace(html.innerText, replacement);
+        //console.log(replacement);
         return html
      } else {
 
@@ -1266,10 +1269,12 @@ function BeforeP(number){
 function ObernutVopros(vop,number){
   if (vop.length==0) return ''
   if (vop.search(patternBefore) != -1) {
-    console.log("NOT-1");
+    //console.log("NOT-1");
     return vop
   }
-	return BeforeP(number+1) + vop + patternAfter
+  answeR = BeforeP(number+1) + vop + patternAfter
+  console.log("ObernutF "+answeR);
+	return answeR
 }
 
 function RazdetVopros(vop){
