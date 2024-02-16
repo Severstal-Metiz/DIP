@@ -1029,8 +1029,11 @@ function ReplaceTextInHtml(html,q,index){
     for (var j=0;j< DB[i].amount;j++){
      if (html.innerText == DB[i].answers[j]){
         var replacement = ObernutVopros(html.innerText,j);
-        html.innerHTML = html.innerHTML.replace(html.innerText, replacement);
+        //var htmlka = html.innerHTML;
+        //htmlka = htmlka.replace(htmlka, replacement);
+        html.innerHTML = html.innerHTML.replace(html.innerHTML, replacement);
         //console.log(replacement);
+        //html.innerHTML = htmlka;
         return html
      } else {
 
